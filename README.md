@@ -1,1 +1,1 @@
-# Package Template
+# ts-apps-scripts
