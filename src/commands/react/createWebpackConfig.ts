@@ -4,7 +4,6 @@ import TerserPlugin from 'terser-webpack-plugin';
 
 export interface CreateWebpackConfigOptions {
   mode: 'development' | 'production';
-  context: string;
   entryPath: string;
   buildPath: string;
   publicUrlOrPath: string;
