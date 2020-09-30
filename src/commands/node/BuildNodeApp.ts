@@ -1,14 +1,21 @@
-import { PackageJson, readPackageJson } from '../../../utils/readPackageJson';
-import { createPaths } from '../createPaths';
+import { PackageJson, readPackageJson } from '../../utils/readPackageJson';
+import { createPaths } from './createPaths';
 import fse from 'fs-extra';
-import { internalsFromPackageJson } from '../../../utils/internalsFromPackageJson';
-import { createWebpackConfig } from '../createWebpackConfig';
-import { createBabelConfig } from '../createBabelConfig';
+import { internalsFromPackageJson } from '../../utils/internalsFromPackageJson';
+import { createWebpackConfig } from './createWebpackConfig';
+import { createBabelConfig } from './createBabelConfig';
 import webpack from 'webpack';
 import { builtinModules as builtin } from 'module';
-import { runCommand } from '../../../utils/runCommand';
+import { runCommand } from '../../utils/runCommand';
+import { resolveProject } from '../../utils/resolveProject';
 
-export async function nodeBuild(root: string, project: string) {
+export interface BuildNodeAppConfig {
+  project?: string;
+}
+
+export async function BuildNodeApp(config: BuildNodeAppConfig = {}) {
+  const { project, root } = await resolveProject(config.project);
+
   const {
     buildPath,
     entryPath,

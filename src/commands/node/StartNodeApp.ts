@@ -1,21 +1,25 @@
-import { once } from '../../../utils/index';
+import { once } from '../../utils/index';
 import webpack from 'webpack';
 import nodemon from 'nodemon';
 import fse from 'fs-extra';
-import { createWebpackConfig } from '../createWebpackConfig';
-import { createPaths } from '../createPaths';
-import { createBabelConfig } from '../createBabelConfig';
-import { readPackageJson } from '../../../utils/readPackageJson';
-import { internalsFromPackageJson } from '../../../utils/internalsFromPackageJson';
+import { createWebpackConfig } from './createWebpackConfig';
+import { createPaths } from './createPaths';
+import { createBabelConfig } from './createBabelConfig';
+import { readPackageJson } from '../../utils/readPackageJson';
+import { internalsFromPackageJson } from '../../utils/internalsFromPackageJson';
+import { resolveProject } from '../../utils/resolveProject';
 
-// const nodeExternals = require('webpack-node-externals');
-// const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
-// const config = require('./paths');
-// const path = require('path');
-// const babelPreset = require('../babel');
+export interface StartNodeAppConfig {
+  project?: string;
+}
 
-export async function nodeStart(root: string, project: string) {
-  const { buildPath, entryPath, publicBuildPath, srcPath, buildMainPath } = createPaths(root, project);
+export async function StartNodeApp(config: StartNodeAppConfig = {}) {
+  const { project, root } = await resolveProject(config.project);
+
+  const { buildPath, entryPath, publicBuildPath, srcPath, buildMainPath } = createPaths(
+    root,
+    project
+  );
 
   const pkg = await readPackageJson(root);
   const internals = internalsFromPackageJson(pkg);
