@@ -41,10 +41,6 @@ export function createBabelConfig(): BabelConfig {
         }
       ],
 
-      // This is so we don't need to add `babel-polyfill` to our webpack `entry`.
-      // Unlike `babel-polyfill`, `babel-runtime` + the transform do not pollute
-      // the global namespace. Yay.
-      // @see https://medium.com/@jcse/clearing-up-the-babel-6-ecosystem-c7678a314bf3#.7j10g8yn0
       [
         require.resolve('@babel/plugin-transform-runtime'),
         {

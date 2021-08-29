@@ -1,4 +1,4 @@
-import { resolveProject } from '../../utils/resolveProject';
+import { resolveProject } from '../utils/resolveProject';
 import { createWebpackConfig } from './createWebpackConfig';
 import { createCompiler, prepareUrls } from 'react-dev-utils/WebpackDevServerUtils';
 import { createWebpackDevServerConfig } from './createWebpackDevServerConfig';

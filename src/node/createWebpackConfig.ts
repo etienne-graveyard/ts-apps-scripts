@@ -47,19 +47,6 @@ export function createWebpackConfig(options: CreateWebpackConfigOptions): webpac
         }
       }
     ],
-
-    // externals: [
-    //   nodeExternals({
-    //     modulesFromFile: true,
-    //     whitelist: [
-    //       /\.(eot|woff|woff2|ttf|otf)$/,
-    //       /\.(svg|png|jpg|jpeg|gif|ico|webm)$/,
-    //       /\.(mp4|mp3|ogg|swf|webp)$/,
-    //       /\.(css|scss|sass|less|styl)$/,
-    //     ],
-    //   }),
-    // ],
-
     // Since we are not targeting a browser, bundle size is not relevant.
     // Additionally, the performance hints clutter up our nice error messages.
     performance: {

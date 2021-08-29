@@ -1,13 +1,13 @@
-import { once } from '../../utils/index';
+import { once } from '../utils/index';
 import webpack from 'webpack';
 import nodemon from 'nodemon';
 import fse from 'fs-extra';
 import { createWebpackConfig } from './createWebpackConfig';
 import { createPaths } from './createPaths';
 import { createBabelConfig } from './createBabelConfig';
-import { readPackageJson } from '../../utils/readPackageJson';
-import { internalsFromPackageJson } from '../../utils/internalsFromPackageJson';
-import { resolveProject } from '../../utils/resolveProject';
+import { readPackageJson } from '../utils/readPackageJson';
+import { internalsFromPackageJson } from '../utils/internalsFromPackageJson';
+import { resolveProject } from '../utils/resolveProject';
 
 export interface StartNodeAppConfig {
   project?: string;

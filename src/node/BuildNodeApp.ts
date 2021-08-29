@@ -1,13 +1,13 @@
-import { PackageJson, readPackageJson } from '../../utils/readPackageJson';
+import { PackageJson, readPackageJson } from '../utils/readPackageJson';
 import { createPaths } from './createPaths';
 import fse from 'fs-extra';
-import { internalsFromPackageJson } from '../../utils/internalsFromPackageJson';
+import { internalsFromPackageJson } from '../utils/internalsFromPackageJson';
 import { createWebpackConfig } from './createWebpackConfig';
 import { createBabelConfig } from './createBabelConfig';
 import webpack from 'webpack';
 import { builtinModules as builtin } from 'module';
-import { runCommand } from '../../utils/runCommand';
-import { resolveProject } from '../../utils/resolveProject';
+import { runCommand } from '../utils/runCommand';
+import { resolveProject } from '../utils/resolveProject';
 
 export interface BuildNodeAppConfig {
   project?: string;
